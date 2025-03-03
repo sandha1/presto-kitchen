@@ -1,5 +1,14 @@
 class AppliancesController < ApplicationController
-
+  skip_before_action :authenticate_user!
+  
+  def index
+    @appliances = Appliance.all
+  end
+  
+  def show
+    @appliance = Appliance.find(params[:id])
+  end
+  
   def new
     @appliance = Appliances.new
   end
@@ -12,9 +21,10 @@ class AppliancesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
+  private
 
   def appliance_params
     params.require(:appliance).permit(:name, :description, :price)
   end
-
 end
