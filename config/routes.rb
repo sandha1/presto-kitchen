@@ -19,7 +19,5 @@ Rails.application.routes.draw do
   #     patch 'accept', to: 'bookings#accept'
   #   end
   # end
-
-  resources :appliances, only: [:index]
-  
+  resources :appliances, only: [:index, :show]
 end
