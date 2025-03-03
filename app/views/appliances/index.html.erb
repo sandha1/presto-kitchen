@@ -1,14 +1,22 @@
-<h1>Index de nos appliances</h1>
+<div class="container">
 
-<% @appliances.each do |appliance| %>
-<div class="card-trip">
-  <img src="https://images.unsplash.com/photo-1512594282804-b5f400408c9d" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= appliance.name %></h2>
-      <p><%= appliance.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= appliance.price %> €</h2>
+  <h1>Browse the appliances</h1>
+
+  <div class="row justify-content-center">
+
+  <% @appliances.each do |appliance| %>
+    <div class="col-4">
+      <div class="card-trip">
+        <img src="https://images.unsplash.com/photo-1512594282804-b5f400408c9d" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= appliance.name %></h2>
+            <p><%= appliance.description %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= appliance.price %> €</h2>
+        </div>
+      </div>
+      </div>
+    <% end %>
   </div>
 </div>
-<% end %>
