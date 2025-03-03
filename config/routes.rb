@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  # GET 'show', to: 'appliances#show'
+  resources :appliances, only: [:index]
+  
 end
