@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   #     patch 'accept', to: 'bookings#accept'
   #   end
   # end
+
   resources :appliances, only: [:index]
-  # get '/appliances', to: 'appliances#index'
+  
 end
