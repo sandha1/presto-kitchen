@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :appliances, only: [:new, :create]
+  resources :appliances, only: [:index, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   #     patch 'accept', to: 'bookings#accept'
   #   end
   # end
-  resources :appliances, only: [:index, :show]
+  resources :appliances, only: [:index, :show] do
+    resources :bookings, only: [:create]
+  end
 end
