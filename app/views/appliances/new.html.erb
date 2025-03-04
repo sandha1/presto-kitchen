@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Create a new appliance</h1>
+    <div class="col-xs-6 col-sm-6 col-sm-offset-1">
+      <h1 class="custom-title">Create a new appliance</h1>
       <%= simple_form_for @appliance do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
+        <%= f.input :capacity %>
+        <%= f.input :city %>
         <%= f.input :price %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
