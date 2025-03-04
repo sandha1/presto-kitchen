@@ -7,6 +7,7 @@ class AppliancesController < ApplicationController
 
   def show
     @appliance = Appliance.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
