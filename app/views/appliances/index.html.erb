@@ -1,19 +1,29 @@
 <div class="container">
 
-  <h1>Browse the appliances</h1>
-
+  <h1 class="text-center">Browse the appliances</h1>
   <div class="row justify-content-center">
 
   <% @appliances.each do |appliance| %>
-    <div class="col-4">
+    <div class="col-4 p-3">
       <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1512594282804-b5f400408c9d" />
+        <%= image_tag(appliance.photo) %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= appliance.name %></h2>
-            <p><%= appliance.description %></p>
+            <div class="d-flex justify-content-between my-1">
+              <h2><%= appliance.name %></h2>
+              <div class="d-flex">
+                <p class="card-trip-pricing me-2"><i class="fa-solid fa-user-group"></i> <strong><%= appliance.capacity %></strong>,</p>
+                <p class="card-trip-pricing me-2"><i class="fa-solid fa-location-dot"></i> <strong><%= appliance.city %></strong>,</p>
+                <p class="card-trip-pricing"><i class="fa-solid fa-euro-sign"></i> <strong><%= appliance.price %></strong></p>
+              </div>
+            </div>
+            <div>
+              <p class="mb-2"><%= appliance.description[0..110] %>...</p>
+              <div class="d-flex justify-content-end">
+                <%= link_to("More infos", appliance_path(appliance), class:"btn btn-primary") %>
+              </div>
+            </div>
           </div>
-          <h2 class="card-trip-pricing"><%= appliance.price %> €</h2>
         </div>
       </div>
       </div>
