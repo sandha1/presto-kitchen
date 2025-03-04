@@ -1,5 +1,5 @@
 class AppliancesController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @appliances = Appliance.all
@@ -11,11 +11,13 @@ class AppliancesController < ApplicationController
   end
 
   def new
-    @appliance = Appliances.new
+    @appliance = Appliance.new
   end
 
   def create
     @appliance = Appliance.new(appliance_params)
+    @appliance.user = current_user
+
     if @appliance.save
       redirect_to appliance_path(@appliance)
     else
@@ -26,6 +28,6 @@ class AppliancesController < ApplicationController
   private
 
   def appliance_params
-    params.require(:appliance).permit(:name, :description, :price)
+    params.require(:appliance).permit(:name, :description, :price, :city, :capacity)
   end
 end
