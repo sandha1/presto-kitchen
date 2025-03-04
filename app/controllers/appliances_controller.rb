@@ -1,5 +1,5 @@
 class AppliancesController < ApplicationController
-  # skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def index
     @appliances = Appliance.all
@@ -7,6 +7,7 @@ class AppliancesController < ApplicationController
 
   def show
     @appliance = Appliance.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
