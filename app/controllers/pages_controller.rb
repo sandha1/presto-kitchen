@@ -14,5 +14,4 @@ class PagesController < ApplicationController
     @appliances = Appliance.where(user: current_user)
   end
 
-  def my_
 end
