@@ -20,27 +20,27 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  # def accept
-  #   @booking = Booking.find(params[:id])
-  #   @booking.status = true
-  #   @appliance = @booking.appliance
-  #   if @booking.save
-  #     redirect_to appliance_booking_path(@appliance, @booking)
-  #   else
-  #    render :new, status: :unprocessable_entity
-  #   end
-  # end
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true
+    @appliance = @booking.appliance
+    if @booking.save
+      redirect_to appliance_booking_path(@appliance, @booking)
+    else
+     render :new, status: :unprocessable_entity
+    end
+  end
 
-  # def decline
-  #   @booking = Booking.find(params[:id])
-  #   @booking.status = false
-  #   @appliance = @booking.appliance
-  #   if @booking.save
-  #     redirect_to appliance_booking_path(@appliance, @booking)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.accepted = false
+    @appliance = @booking.appliance
+    if @booking.save
+      redirect_to appliance_booking_path(@appliance, @booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   private
 
