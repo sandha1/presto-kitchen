@@ -1,0 +1,10 @@
+<h1>My dashboard</h1>
+
+<% @bookings.each do |booking| %>
+  <h2><%= booking.appliance.name %></h2>
+
+  <% if current_user == booking.appliance.user %>
+    <%= link_to "Accept", accept_path(booking), class: "btn btn-success", data: { turbo_method: :patch } %>
+    <%= link_to "Decline", decline_path(booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+  <% end %>
+<% end %>
