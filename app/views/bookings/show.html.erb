@@ -1,13 +1,25 @@
-<div class="container">
-<% if current_user == @booking.user %>
-  <%= @booking.appliance.name %>
-    <% if @booking.accepted == nil %>
-    <%= "Pending" %>
-    <% elsif @booking.accepted == true %>
-      <%= "Accepted" %>
+<div class="container mt-5">
+  <% if current_user == @booking.user %>
+
+    <% if @appliance.photo.attached? %>
+      <%= cl_image_tag(@appliance.photo.key, class: 'w-100 object-fit-cover position-center rounded-4', height: '400px') %>
+    <% else %>
+      <%= image_tag("default_appliance.jpg", class: 'w-100 object-fit-cover position-center rounded-4', height: '400px') %>
     <% end %>
-<% elsif current_user == @booking.appliance.user %>
-  <%= link_to "Accept", accept_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
-  <%= link_to "Decline", decline_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
-<% end %>
+    <div class='row mt-3'>
+      <div class='col-12 col-lg-8'>
+        <h1 class='display-5 fw-bold py-2'><%= @booking.appliance.name %></h1>
+        <% if @booking.accepted == nil %>
+          <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
+        <% elsif @booking.accepted == true %>
+          <p>Status: <span style="color: green"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
+        <% end %>
+      </div>
+    </div>
+
+  <% elsif current_user == @booking.appliance.user %>
+    <%= link_to "Accept", accept_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
+    <%= link_to "Decline", decline_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+
+  <% end %>
 </div>

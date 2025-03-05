@@ -1,7 +1,6 @@
 <h1>My bookings (as owner)</h1>
 
-
-<%  @bookings_as_owner.each do |booking| %>
+<% @bookings_as_owner.each do |booking| %>
   <div><%= booking.start_date %></div>
   <div><%= booking.user.username %></div>
   <div><%= booking.appliance.name %></div>
