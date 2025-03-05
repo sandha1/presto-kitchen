@@ -1,0 +1,10 @@
+<% if current_user == @booking.user %>
+  <%= @booking.appliance.name %>
+    <% if @booking.accepted = nil %>
+    <%= "Pending" %>
+    <% elsif @booking.accepted = true %>
+      <%= "Accepted" %>
+    <% end %>
+<% end %>
+<%# <% elsif current_user == booking.appliance.user %>
+  <%# <%= @booking.appliance.name %>

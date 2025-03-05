@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :appliances, only: [:index, :show] do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :index, :show]
   end
+
+  patch "accept/:id", to: "bookings#accept", as: :accept
+  patch "delete/:id", to: "bookings#decline", as: :decline
 end
