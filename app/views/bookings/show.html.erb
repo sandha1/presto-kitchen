@@ -1,10 +1,12 @@
 <% if current_user == @booking.user %>
   <%= @booking.appliance.name %>
-    <% if @booking.accepted = nil %>
+    <% if @booking.accepted == nil %>
     <%= "Pending" %>
-    <% elsif @booking.accepted = true %>
+    <% elsif @booking.accepted == true %>
       <%= "Accepted" %>
     <% end %>
+<% elsif current_user == @booking.appliance.user %>
+  <%= link_to "Accept", accept_path(@booking), data: { turbo_method: :patch } %>
+  <%= link_to "Decline", decline_path(@booking), data: { turbo_method: :patch } %>
 <% end %>
-<%# <% elsif current_user == booking.appliance.user %>
-  <%# <%= @booking.appliance.name %>
+
