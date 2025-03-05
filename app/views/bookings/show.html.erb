@@ -9,6 +9,7 @@
     <div class='row mt-3'>
       <div class='col-12 col-lg-8'>
         <h1 class='display-5 fw-bold py-2'><%= @booking.appliance.name %></h1>
+        <p><%= "Total price : #{@booking.total_price}€" %></p>
         <% if @booking.accepted == nil %>
           <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
         <% elsif @booking.accepted == true %>
