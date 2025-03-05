@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @booking.accepted = true
     @appliance = @booking.appliance
     if @booking.save
-      redirect_to appliance_booking_path(@appliance, @booking)
+      redirect_to my_appliances_path(@appliance, @booking)
     else
      render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     @booking.accepted = false
     @appliance = @booking.appliance
     if @booking.save
-      redirect_to appliance_booking_path(@appliance, @booking)
+      redirect_to my_appliances_path(@appliance, @booking)
     else
       render :new, status: :unprocessable_entity
     end
