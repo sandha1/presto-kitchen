@@ -1,44 +1,54 @@
-
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <div class="header">
-                <%= image_tag "logo.jpg", alt: "Logo", class: "logo" %>
-                <%= link_to 'Presto Kitchen', root_path, class: "navbar-brand px-3 nav-link", id: "brand" %>
-              </div>
-
-
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="header">
+      <%= image_tag "logo.jpg", alt: "Logo", class: "logo" %>
+      <%= link_to 'Presto Kitchen', root_path, class: "navbar-brand px-3 nav-link", id: "brand" %>
+    </div>
 
 
-              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav px-3">
-                  <li class="nav-item">
-                    <%= link_to 'List kitchen appliance', new_appliance_path, class: "nav-link" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to 'Browse appliances', appliances_path, class: "nav-link" %>
-                  </li>
-                  <li class="nav-item">
-                    <% if user_signed_in? %>
-                      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" do %>
-                        <i class="fa-solid fa-user"></i> Logout
-                      <% end %>
-                    <% else %>
-                      <%= link_to new_user_session_path, class: "nav-link" do  %>
-                        <i class="fa-solid fa-user"></i> Login
-                      <% end %>
-                    <% end %>
-                  </li>
-                  </ul>
-                </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
 
-                <%# <form class="d-flex px-4" role="search">
-                  <input class="form-control me-2" type="search" placeholder="What are you looking for?" aria-label="Search">
-                  <button class="btn-blue" type="submit">Search</button>
-                </form> %>
-              </div>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item">
+          <%= link_to 'List kitchen appliance', new_appliance_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Browse appliances', appliances_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" do %>
+              <i class="fa-solid fa-user"></i> Logout
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path, class: "nav-link" do  %>
+              <i class="fa-solid fa-user"></i> Login
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="btn border dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">My appliances</a>
+              <a class="dropdown-item" href="#">My bookings</a>
             </div>
-          </nav>
+          </div>
+        </li>
+        </ul>
+      </div>
+
+
+      <%# <form class="d-flex px-4" role="search">
+        <input class="form-control me-2" type="search" placeholder="What are you looking for?" aria-label="Search">
+        <button class="btn-blue" type="submit">Search</button>
+      </form> %>
+    </div>
+  </div>
+</nav>
