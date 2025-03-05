@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>My bookings</h1>
+      <% if @bookings.any? %>
+        <ul class="list-group mb-3">
+        <% @appliances.each do |appliance| %>
+          <% @bookings.each do |booking| %>
+            <li class="list-group-item">
+           <%= appliance.name %>
+            </li>
+          <% end %>
+        <% end %>
+        </ul>
+      <% else %>
+        <p>No booking</p>
+      <% end %>
+    </div>
+  </div>
+</div>

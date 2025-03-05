@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   #   end
   # end
 
+
   resources :appliances, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:create, :show]
   end
-
+  
   get "/my_appliances", to: "pages#my_appliances"
   get "/my_bookings", to: "pages#my_bookings"
 
