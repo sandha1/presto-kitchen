@@ -1,35 +1,36 @@
-
-<div class="header-container">
+<div class="header-container mt-3">
   <h1>Rent, Cook, Enjoy!</h1>
 
-<div>
-  <p>Presto Kitchen is the ultimate platform for renting kitchen appliances with ease.</p>
-  <p>Whether you're a home cook needing a high-end mixer for a special recipe, a chef looking for professional-grade equipment, or simply want to try before you buy, Presto Kitchen connects you with a wide range of kitchen tools at affordable rates.</p>
-  <p>Save money, reduce waste, and enjoy hassle-free cooking by renting what you need, when you need it!</p>
-</div>
+<div class="container">
+  <div>
+    <p>Presto Kitchen is the ultimate platform for renting kitchen appliances with ease.</p>
+    <p>Whether you're a home cook needing a high-end mixer for a special recipe, a chef looking for professional-grade equipment, or simply want to try before you buy, Presto Kitchen connects you with a wide range of kitchen tools at affordable rates.</p>
+    <p>Save money, reduce waste, and enjoy hassle-free cooking by renting what you need, when you need it!</p>
+  </div>
 
-<div class="cards-container">
-  <div class="row">
+  <div class="cards-container">
+    <div class="row">
 
-    <div class="col-md-6">
-      <div class="card">
-        <img src="<%= asset_path('kitchen_appliances_user.jpg') %>" class="card-img-top" alt="Card image">
-        <div class="card-body">
-          <h5 class="card-title">Find the perfect appliance for the perfect meal!</h5>
-          <a href="#" class="btn btn-primary">Browse appliances</a>
+      <div class="col-md-6">
+        <div class="card">
+          <img src="<%= asset_path('kitchen_appliances_user.jpg') %>" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">Find the perfect appliance for the perfect meal!</h5>
+            <%= link_to "Browse appliances", appliances_path, class: "btn btn-primary" %>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="col-md-6">
-      <div class="card">
-        <img src="<%= asset_path('kitchen_appliances_owner.jpg') %>" class="card-img-top" alt="Card image">
-        <div class="card-body">
-          <h5 class="card-title">You have an appliance you want to share? List it here!</h5>
-          <a href="#" class="btn btn-primary">List appliance</a>
+      <div class="col-md-6">
+        <div class="card">
+          <img src="<%= asset_path('kitchen_appliances_owner.jpg') %>" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">You have an appliance you want to share? List it here!</h5>
+            <%= link_to "List appliances", new_appliance_path, class: "btn btn-primary" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
