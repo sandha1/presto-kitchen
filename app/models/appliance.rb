@@ -7,6 +7,7 @@ class Appliance < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :price, numericality: { only_integer: true }
+  validates :capacity, presence: true
   validates :capacity, numericality: { only_integer: true }
   validates :capacity, inclusion: { in: (1..20) }
   validates :city, presence: true
