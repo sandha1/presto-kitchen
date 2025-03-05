@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.accepted = nil
       if @booking.save
-         redirect_to my_bookings_path
+         redirect_to appliance_booking_path(@appliance, @booking)
       else
         render :new, status: :unprocessable_entity
       end
@@ -25,6 +25,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @appliance = @booking.appliance
   end
 
   def accept

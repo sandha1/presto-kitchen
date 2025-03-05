@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
   end
 
-
   def my_bookings
     @bookings = Booking.where(user: current_user)
     @appliances = Appliance.where(user: current_user)
@@ -13,5 +12,4 @@ class PagesController < ApplicationController
   def my_appliances
     @appliances = Appliance.where(user: current_user)
   end
-
 end
