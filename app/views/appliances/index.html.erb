@@ -15,7 +15,7 @@
 
   <div class="row justify-content-center">
 
-    <% if @appliances.any? %>
+    <% if @appliances %>
     <% @appliances.each do |appliance| %>
       <div class="col-4 p-3">
 
@@ -42,7 +42,7 @@
             <%= link_to("More infos", appliance_path(appliance), class:"btn btn-primary") %>
           </div>
         </div>
-        
+
         </div>
       <% end %>
     <% else %>
