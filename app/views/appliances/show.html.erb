@@ -12,15 +12,25 @@
       <p class='py-2'><i class='fa-solid fa-user-group'></i> <strong><%= @appliance.capacity %></strong>, <i class='fa-solid fa-location-dot'></i> <strong><%= @appliance.city %></strong></p>
       <p class='py-2'><%= @appliance.description %></p>
     </div>
-    <div class='col-12 col-lg-4'>
-      <div class='bg-white rounded-4 shadow' style='height: 400px'>
-        <div class='px-4 py-2'>
-        <p style='fw-bold'><%= @appliance.price %>€ per night</p>
-        <div>
-          <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
+
+    <% if user_signed_in? %>
+      <div class='col-12 col-lg-4' id="form_datepicker">
+        <div class='bg-white rounded-4 shadow' style='height: 400px'>
+          <div class='px-4 py-2'>
+            <p style='fw-bold'><%= @appliance.price %>€ per night</p>
+          <div>
+            <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
+          </div>
+          </div>
         </div>
+      </div>
+
+    <% else %>
+      <div class='col-12 col-lg-4 text-center d-flex p-5' >
+      <div class='px-4 py-2 '>
+      <%= link_to "Sign in to book appliance", user_session_path(redirect_url: appliance_url(@appliance)) %><br />
+    <% end%>
         </div>
       </div>
     </div>
   </div>
-</div>
