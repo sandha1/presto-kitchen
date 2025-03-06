@@ -2,16 +2,6 @@ class AppliancesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-
-
-
-
-
-
-
-
-
-
     if params[:query].present?
       @appliances = Appliance.search_by_name_and_description(params[:query])
     else
@@ -27,6 +17,17 @@ class AppliancesController < ApplicationController
           address: appliance.address
         }
       end
+    end
+  end
+
+  if @appliances
+    @markers = @appliances.geocoded.map do |appliance|
+      {
+        latitude: appliance.latitude,
+        longitude: appliance.longitude,
+        name: appliance.name,
+        address: appliance.address
+      }
     end
   end
 
@@ -52,7 +53,7 @@ class AppliancesController < ApplicationController
 
   private
 
-  def appliance_params
-    params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
+    def appliance_params
+      params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
   end
 end
