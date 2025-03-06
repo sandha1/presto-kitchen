@@ -33,7 +33,6 @@ export default class extends Controller {
           .setLngLat([marker.longitude, marker.latitude])
           .setPopup(new mapboxgl.Popup().setHTML(`<strong>${marker.name}</strong><br>${marker.address}`))
           .addTo(this.map);
-
     });
   }
 

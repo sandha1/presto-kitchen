@@ -53,7 +53,7 @@ class AppliancesController < ApplicationController
 
   private
 
-  def appliance_params
-    params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
+    def appliance_params
+      params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
   end
 end
