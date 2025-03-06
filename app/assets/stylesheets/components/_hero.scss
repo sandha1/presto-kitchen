@@ -26,10 +26,17 @@ h1 {
 .hero-link {
   font-size: calc(1.5rem + 1vw);
   text-decoration: none;
+  font-weight: lighter!important;
   color: white;
   text-shadow: 1px 1px 2px #01497C;
+  border: white solid 2px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5px;
 }
 
 .hero-link:hover {
-  color: #1c5177;
+  font-size: calc(1.7rem + 1vw);
 }
