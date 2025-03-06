@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :show]
   end
 
+  delete "bookings/:id", to: "bookings#destroy"
+
   get "/my_appliances", to: "pages#my_appliances"
   get "/my_bookings", to: "pages#my_bookings"
   get "/my_dashboard", to: "pages#my_dashboard"

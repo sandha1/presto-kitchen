@@ -28,6 +28,7 @@
           <%= link_to edit_appliance_path(appliance) do %>
             <span style="color: #01497C" class="me-3"><i class="fa-solid fa-pencil"></i></span>
           <% end %>
+
           <%= link_to appliance_path(appliance), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
             <span style="color: #01497C"><i class="fa-solid fa-trash"></i></span>
           <% end %>

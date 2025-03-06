@@ -12,10 +12,12 @@
           <%= image_tag("default_appliance.jpg") %>
         <% end %>
 
+
         <div class="card-product-infos">
           <p><%= appliance.name %><p>
           <p><%= appliance.description %><p>
         </div>
+
 
         <% if appliance.bookings.any? %>
 
@@ -29,9 +31,21 @@
               <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
             <% end %>
 
+         <div class="card-trip-infos justify-content-end">
+    <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <span style="color: #01497C"><i class="fa-solid fa-trash"></i></span>
+    <% end %>
+  </div>
+
           <% end %>
 
         <% end %>
+
+
+
+
+
+
 
       </div>
 
