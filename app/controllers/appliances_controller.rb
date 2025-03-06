@@ -3,6 +3,12 @@ class AppliancesController < ApplicationController
 
   def index
     @appliances = Appliance.all
+    @markers = @appliances.geocoded.map do |appliance|
+      {
+        lat: appliance.latitude,
+        lng: appliance.longitude
+      }
+    end
   end
 
   def show
