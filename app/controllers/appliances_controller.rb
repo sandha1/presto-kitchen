@@ -2,20 +2,32 @@ class AppliancesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @appliances = Appliance.all
+    if params[:query].present?
+      @appliances = Appliance.search_by_name_and_description(params[:query])
+    else
+      @appliances = Appliance.all
+    end
+
+    if @appliances
+      @markers = @appliances.geocoded.map do |appliance|
+        {
+          latitude: appliance.latitude,
+          longitude: appliance.longitude,
+          name: appliance.name,
+          address: appliance.address
+        }
+      end
+    end
+  end
+
+  if @appliances
     @markers = @appliances.geocoded.map do |appliance|
       {
         latitude: appliance.latitude,
         longitude: appliance.longitude,
         name: appliance.name,
         address: appliance.address
-        }
-      end
-
-    if params[:query].present?
-      @appliances = Appliance.search_by_name_and_description(params[:query])
-    else
-     @appliances = Appliance.all
+      }
     end
   end
 
