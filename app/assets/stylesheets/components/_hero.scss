@@ -4,7 +4,7 @@ h1 {
 
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("default_appliance.jpg");
-  height: 600px;
+  height: calc(100svh - 80px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
