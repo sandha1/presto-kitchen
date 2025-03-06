@@ -20,17 +20,6 @@ class AppliancesController < ApplicationController
     end
   end
 
-  if @appliances
-    @markers = @appliances.geocoded.map do |appliance|
-      {
-        latitude: appliance.latitude,
-        longitude: appliance.longitude,
-        name: appliance.name,
-        address: appliance.address
-      }
-    end
-  end
-
   def show
     @appliance = Appliance.find(params[:id])
     @booking = Booking.new
