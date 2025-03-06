@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :appliances, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:create, :show]
+    resources :bookings, only: [:create, :show, :delete]
   end
 
   get "/my_appliances", to: "pages#my_appliances"
