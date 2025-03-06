@@ -7,8 +7,19 @@ class AppliancesController < ApplicationController
     else
       @appliances = Appliance.all
     end
+
+    if @appliances
+      @markers = @appliances.geocoded.map do |appliance|
+        {
+          latitude: appliance.latitude,
+          longitude: appliance.longitude,
+          name: appliance.name,
+          address: appliance.address
+        }
+      end
+    end
   end
-  
+
   if @appliances
     @markers = @appliances.geocoded.map do |appliance|
       {
