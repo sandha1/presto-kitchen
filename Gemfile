@@ -53,6 +53,7 @@ gem "devise"
 gem 'faker'
 gem 'cloudinary'
 gem "geocoder"
+gem "pg_search"
 
 
 group :development, :test do
