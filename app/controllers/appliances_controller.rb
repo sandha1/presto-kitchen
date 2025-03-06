@@ -3,6 +3,9 @@ class AppliancesController < ApplicationController
 
   def index
     @appliances = Appliance.all
+    if params[:query].present?
+      @appliances = Appliance.search_by_name_and_description(params[:query])
+    end
   end
 
   def show
