@@ -40,6 +40,10 @@ class AppliancesController < ApplicationController
     end
   end
 
+  # def my_appliances
+  #   @my_appliances = current_user.appliances
+  # end
+
   private
 
     def appliance_params

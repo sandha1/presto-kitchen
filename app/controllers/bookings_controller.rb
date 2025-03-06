@@ -1,14 +1,18 @@
 class BookingsController < ApplicationController
-
-  # private
-  # def set_user
-    # @user = User.find(params[:user_id])
+  before_action :set_user, only: [:new, :my_bookings, :create, :show, :accept, :decline]
+  private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
   # end
-
 
   def new
     @booking = Booking.new
   end
+
+  # def my_bookings
+  #   @appliances = Appliance.joins(:bookings).where(bookings: { user_id: current_user.id })
+  # end
 
   def create
     @appliance = Appliance.find(params[:appliance_id])
