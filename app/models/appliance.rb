@@ -22,4 +22,12 @@ class Appliance < ApplicationRecord
   validates :capacity, numericality: { only_integer: true }
   validates :capacity, inclusion: { in: (1..20) }
   validates :city, presence: true
+
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
+
+  def coordinates_present?
+    latitude.present? && longitude.present?
+  end
+  
 end
