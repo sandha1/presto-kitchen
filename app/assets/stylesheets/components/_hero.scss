@@ -1,3 +1,7 @@
+h1 {
+  font-size: calc(3rem + 2vw);
+}
+
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("default_appliance.jpg");
   height: 600px;
@@ -8,11 +12,13 @@
 }
 
 .hero-text {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  font-weight: bolder;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  text-shadow: 1px 1px 2px;
+  text-shadow: 1px 1px 2px #01497C;
 }
