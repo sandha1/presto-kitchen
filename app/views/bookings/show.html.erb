@@ -13,7 +13,9 @@
         <% if @booking.accepted == nil %>
           <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
         <% elsif @booking.accepted == true %>
-          <p>Status: <span style="color: green"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
+          <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
+        <% else @booking.accepted == false %>
+          <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
         <% end %>
       </div>
     </div>

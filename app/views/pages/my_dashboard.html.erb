@@ -1,10 +1,62 @@
-<h1>My dashboard</h1>
+<div class="container my-3">
 
-<% @bookings.each do |booking| %>
-  <h2><%= booking.appliance.name %></h2>
+  <h1 class="text-center">My dashboard</h1>
 
-  <% if current_user == booking.appliance.user %>
-    <%= link_to "Accept", accept_path(booking), class: "btn btn-success", data: { turbo_method: :patch } %>
-    <%= link_to "Decline", decline_path(booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
-  <% end %>
-<% end %>
+  <div class="row justify-content-center">
+
+    <% @bookings.each do |booking| %>
+      <div class="col-4 p-3">
+        <div class="card-trip my-3">
+          <% if booking.appliance.photo.attached? %>
+            <%= cl_image_tag(booking.appliance.photo.key) %>
+          <% else %>
+            <%= image_tag("default_appliance.jpg") %>
+          <% end %>
+
+        <div class="card-trip-infos border-bottom">
+          <h2><%= booking.appliance.name %></h2>
+          <div class="d-flex">
+            <p class="card-trip-pricing me-2"><i class="fa-solid fa-user-group"></i> <strong><%= booking.appliance.capacity %></strong>,</p>
+            <p class="card-trip-pricing me-2"><i class="fa-solid fa-location-dot"></i> <strong><%= booking.appliance.city %></strong>,</p>
+            <p class="card-trip-pricing"><i class="fa-solid fa-euro-sign"></i> <strong><%= booking.appliance.price %></strong></p>
+            </div>
+        </div>
+
+        <% if current_user == booking.appliance.user %>
+          <div class="ps-3 my-2">
+            <h5><strong>Booking request from:</strong> <%= booking.user.email.split("@").first %></h5>
+            <h2>From: <%= booking.start_date %> to <%= booking.end_date %> (<%= booking.total_price %> €)</h2>
+          </div>
+
+          <div class="card-trip-infos justify-content-center">
+
+            <% if booking.accepted == nil %>
+              <%= link_to accept_path(booking), data: { turbo_method: :patch } do %>
+                <span class="me-2" style="color: DarkGreen"><i class="fa-solid fa-square-check fa-2xl"></i></span>
+              <% end %>
+
+              <%= link_to decline_path(booking), data: { turbo_method: :patch } do %>
+                <span style="color: Maroon"><i class="fa-solid fa-rectangle-xmark fa-2xl"></i><span>
+              <% end %>
+
+            <% else %>
+
+              <% if booking.accepted %>
+                <p>You have accepted the booking.</p>
+              <% else %>
+                <p>You have declined the booking</p>
+              <% end %>
+
+            <% end %>
+
+          </div>
+        <% end %>
+
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

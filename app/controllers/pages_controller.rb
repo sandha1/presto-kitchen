@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def my_appliances
     @appliances = Appliance.where(user: current_user)
+    @bookings = Booking.where(user: current_user)
   end
 
   def my_dashboard
