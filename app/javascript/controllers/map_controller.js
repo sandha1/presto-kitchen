@@ -18,18 +18,22 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.mapContainerTarget,
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [2.3522, 48.8566],
-      zoom: 12
+      center: [1.888334, 46.603354],
+      zoom: 4
     });
 
-    this.#addMarkersToMap();
+    this.addMarkersToMap();
   }
 
-  #addMarkersToMap() {
+  addMarkersToMap() {
+    console.log(this.markersValue);
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(this.map);
+
+        new mapboxgl.Marker()
+          .setLngLat([marker.longitude, marker.latitude])
+          .setPopup(new mapboxgl.Popup().setHTML(`<strong>${marker.name}</strong><br>${marker.address}`))
+          .addTo(this.map);
+
     });
   }
 

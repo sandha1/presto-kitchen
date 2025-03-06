@@ -5,8 +5,10 @@ class AppliancesController < ApplicationController
     @appliances = Appliance.all
     @markers = @appliances.geocoded.map do |appliance|
       {
-        lat: appliance.latitude,
-        lng: appliance.longitude
+        latitude: appliance.latitude,
+        longitude: appliance.longitude,
+        name: appliance.name,
+        address: appliance.address
       }
     end
   end

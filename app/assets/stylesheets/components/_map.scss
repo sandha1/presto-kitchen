@@ -1,0 +1,13 @@
+.map-wrapper {
+  display: flex;
+  justify-content: flex-start;  /* Aligne la carte à gauche */
+  padding: 20px;  /* Espacement autour du conteneur */
+  border: 2px solid #ccc; /* Encadré autour de la carte */
+  border-radius: 8px; /* Coins arrondis pour un joli effet */
+  margin: 20px; /* Espacement entre les éléments */
+}
+
+#map {
+  width: 100%; /* Carte prend toute la largeur du conteneur */
+  height: 500px; /* Hauteur de la carte */
+}
