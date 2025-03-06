@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    params[:redirect_url] if params[:redirect_url].present?
+    if params[:redirect_url].present?
+      params[:redirect_url]
+    else
+      root_path
+    end
   end
 end
