@@ -39,6 +39,12 @@ class AppliancesController < ApplicationController
     end
   end
 
+  def destroy
+    @appliance = Appliance.find(params[:id])
+    @appliance.destroy
+    redirect_to my_appliances_path, status: :see_other
+  end
+
   private
 
   def appliance_params

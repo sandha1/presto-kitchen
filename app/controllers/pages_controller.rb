@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 
   def my_bookings
     @bookings = Booking.where(user: current_user)
-    @appliances = Appliance.where(user: current_user)
   end
 
   def my_appliances
