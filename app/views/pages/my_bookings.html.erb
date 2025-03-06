@@ -2,7 +2,8 @@
 
   <h1 class="text-center ">My bookings</h1>
 
-      <% @appliances.each do |appliance| %>
+    <% @appliances.each do |appliance| %>
+
       <div class="card-product mb-3">
 
         <% if appliance.photo.attached? %>
@@ -11,15 +12,29 @@
           <%= image_tag("default_appliance.jpg") %>
         <% end %>
 
-  <div class="card-product-infos">
-    <p><%= appliance.name %><p>
-    <p><%= appliance.description %><p>
+        <div class="card-product-infos">
+          <p><%= appliance.name %><p>
+          <p><%= appliance.description %><p>
+        </div>
 
-  </div>
+        <% if appliance.bookings.any? %>
 
+          <% appliance.bookings.each do |booking| %>
 
-</div>
-<% end %>
-  </div>
+            <% if booking.accepted.nil? %>
+              <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
+            <% elsif booking.accepted %>
+              <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
+            <% else %>
+              <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
+            <% end %>
+
+          <% end %>
+
+        <% end %>
+
+      </div>
+
+    <% end %>
 
 </div>

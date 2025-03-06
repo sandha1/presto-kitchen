@@ -6,6 +6,7 @@
     <% if @appliances.any? %>
     <% @appliances.each do |appliance| %>
       <div class="col-4 p-3">
+
         <div class="card-trip">
           <% if appliance.photo.attached? %>
             <%= cl_image_tag(appliance.photo.key) %>
@@ -29,6 +30,7 @@
             <%= link_to("More infos", appliance_path(appliance), class:"btn btn-primary") %>
           </div>
         </div>
+        
         </div>
       <% end %>
     <% else %>
