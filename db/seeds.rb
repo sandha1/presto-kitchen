@@ -14,11 +14,12 @@ Appliance.destroy_all
 
 puts "Cleaned my database"
 
-testuser1 = User.create!(username: "test1", email: "test1@gmail.com", password: "prestokitchen")
-testuser2 = User.create!(username: "test2", email: "test2@gmail.com", password: "prestokitchen")
-testuser3 = User.create!(username: "test3", email: "test3@gmail.com", password: "prestokitchen")
-testuser4 = User.create!(username: "test4", email: "test4@gmail.com", password: "prestokitchen")
-testuser5 = User.create!(username: "test5", email: "test5@gmail.com", password: "prestokitchen")
+testuser1 = User.create!(username: "Elisa98", email: "test1@gmail.com", password: "prestokitchen")
+testuser2 = User.create!(username: "Frankie1985", email: "test2@gmail.com", password: "prestokitchen")
+testuser3 = User.create!(username: "Adeline GRB", email: "test3@gmail.com", password: "prestokitchen")
+testuser4 = User.create!(username: "Batmanne", email: "test4@gmail.com", password: "prestokitchen")
+testuser5 = User.create!(username: "Thomas Dutronc", email: "test5@gmail.com", password: "prestokitchen")
+testuser6 = User.create!(username: "Julia K.", email: "test6@gmail.com", password: "prestokitchen")
 
 puts "Created my five users"
 
@@ -44,7 +45,7 @@ appliance3.save!
 puts "Created appliance 3"
 
 photo4 = File.open("app/assets/images/fondue_chocolat.jpg")
-appliance4 = Appliance.create!(name: "Je fonds pour la fondue chocolat", description: "Chocolate donut lollipop icing pudding pastry cheesecake danish tart. Donut muffin donut gummi bears chocolate bar. Caramels oat cake marshmallow candy macaroon. Cookie icing wafer biscuit dessert jelly beans.", price: 30, user: testuser4, capacity: 6, city: "Lille", city: "Lille", address: "Lille")
+appliance4 = Appliance.create!(name: "Je fonds pour la fondue chocolat", description: "Chocolate donut lollipop icing pudding pastry cheesecake danish tart. Donut muffin donut gummi bears chocolate bar. Caramels oat cake marshmallow candy macaroon. Cookie icing wafer biscuit dessert jelly beans.", price: 30, user: testuser4, capacity: 6, city: "Lille", address: "Lille")
 appliance4.photo.attach(io: photo4, filename: "fondue_chocolat.jpg", content_type: "image/jpg")
 appliance4.save!
 
@@ -86,7 +87,7 @@ appliance9.save!
 puts "Created appliance 9"
 
 photo10 = File.open("app/assets/images/mixer_3.jpeg")
-appliance10 = Appliance.create!(name: "Fouette Fouette", description: "Cardigan stumptown tonx, woke four loko meditation twee. Flexitarian fit 90's JOMO ennui neutra letterpress woke lo-fi put a bird on it. Woke cloud bread tumblr raclette edison bulb mixtape mumblecore shoreditch Brooklyn photo booth.", price: 10, user: testuser4, capacity: 1, city: "Bourg la Reine", address: "Bourg la Reine")
+appliance10 = Appliance.create!(name: "Fouette Fouette", description: "Cardigan stumptown tonx, woke four loko meditation twee. Flexitarian fit 90's JOMO ennui neutra letterpress woke lo-fi put a bird on it. Woke cloud bread tumblr killme edison bulb mixtape mumblecore shoreditch Brooklyn photo booth.", price: 10, user: testuser4, capacity: 1, city: "Bourg la Reine", address: "Bourg la Reine")
 appliance10.photo.attach(io: photo10, filename: "mixer_3.jpeg", content_type: "image/jpg")
 appliance10.save!
 
@@ -100,7 +101,7 @@ appliance11.save!
 puts "Created appliance 11"
 
 photo12 = File.open("app/assets/images/fondue_12.jpg")
-appliance12 = Appliance.create!(name: "Hot pot!", description: "Street art sriracha cardigan pop-up. Ennui prism jawn literally distillery vinyl crucifix af echo park quinoa slow-carb biodiesel vibecession keffiyeh. Artisan vexillologist tattooed sartorial. Authentic squid ethical, shabby chic meh williamsburg YOLO cliche viral edison bulb letterpress. Poutine viral 8-bit gastropub pinterest. Intelligentsia vice distillery salvia, mustache synth VHS banh mi yuccie adaptogen la croix.", price: 20, user: testuser3, capacity: 10, city: "Anthony", address: "Anthony")
+appliance12 = Appliance.create!(name: "Hot pot!", description: "Street art sriracha cardigan pop-up. Ennui prism jawn literally distillery vinyl crucifix af echo park quinoa slow-carb biodiesel vibecession keffiyeh. Artisan vexillologist tattooed sartorial. Authentic squid ethical, shabby chic meh williamsburg YOLO cliche viral edison bulb letterpress. Poutine viral 8-bit gastropub pinterest. Intelligentsia vice distillery salvia, mustache synth VHS banh mi yuccie adaptogen la croix.", price: 20, user: testuser3, capacity: 10, city: "Sceaux", address: "Sceaux")
 appliance12.photo.attach(io: photo12, filename: "fondue_12.jpg", content_type: "image/jpg")
 appliance12.save!
 

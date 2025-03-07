@@ -1,54 +1,41 @@
 <div class="container my-3">
-
   <h1 class="text-center ">My bookings</h1>
 
-    <% @appliances.each do |appliance| %>
+  <% @appliances.each do |appliance| %>
 
-      <div class="card-product mb-3">
+    <div class="card-product border-bottom mt-3">
+      <% if appliance.photo.attached? %>
+        <%= cl_image_tag(appliance.photo.key) %>
+      <% else %>
+        <%= image_tag("default_appliance.jpg") %>
+      <% end %>
 
-        <% if appliance.photo.attached? %>
-          <%= cl_image_tag(appliance.photo.key) %>
-        <% else %>
-          <%= image_tag("default_appliance.jpg") %>
-        <% end %>
+      <div class="card-product-infos">
+        <p><%= appliance.name %><p>
+        <p><%= appliance.description %><p>
+      </div>
+    </div>
 
+    <div class="card-product">
+      <div class="card-product-infos">
+        <% if @bookings.any? %>
+          <% @bookings.each do |booking| %>
 
-        <div class="card-product-infos">
-          <p><%= appliance.name %><p>
-          <p><%= appliance.description %><p>
-        </div>
-
-
-        <% if appliance.bookings.any? %>
-
-          <% appliance.bookings.each do |booking| %>
-
-            <% if booking.accepted.nil? %>
-              <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
-            <% elsif booking.accepted %>
-              <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
-            <% else %>
-              <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
-            <% end %>
-
-         <div class="card-trip-infos justify-content-end"> %>
-    <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do
-    <%# <span style="color: #01497C"><i class="fa-solid fa-trash"></i></span> %>
-    <%# <% end %>
-  <%# </div>
-
+              <div class="ms-5">
+                <% if booking.accepted.nil? %>
+                  <h5><strong>Status: </strong><span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></h5>
+                <% elsif booking.accepted %>
+                  <h5><strong>Status: </strong><span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></h5>
+                <% else %>
+                  <h5><strong>Status: </strong><span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></h5>
+                <% end %>
+              </div>
+            </div>
           <% end %>
 
         <% end %>
-
-
-
-
-
-
-
       </div>
 
-    <% end %>
-
+    </div>
+  <% end %>
 </div>

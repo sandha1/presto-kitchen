@@ -12,15 +12,19 @@ class BookingsController < ApplicationController
 
   def create
     @appliance = Appliance.find(params[:appliance_id])
-    @booking = Booking.new(set_params)
-    @booking.appliance = @appliance
-    @booking.user_id = current_user.id
-    @booking.accepted = nil
+    if @appliance.user == current_user
+      redirect_to my_appliances_path
+    else
+      @booking = Booking.new(set_params)
+      @booking.appliance = @appliance
+      @booking.user_id = current_user.id
+      @booking.accepted = nil
       if @booking.save
          redirect_to appliance_booking_path(@appliance, @booking)
       else
         render :new, status: :unprocessable_entity
       end
+    end
   end
 
   def show
