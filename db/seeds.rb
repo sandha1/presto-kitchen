@@ -86,7 +86,7 @@ appliance9.save!
 puts "Created appliance 9"
 
 photo10 = File.open("app/assets/images/mixer_3.jpeg")
-appliance10 = Appliance.create!(name: "Fouette Fouette", description: "Cardigan stumptown tonx, woke four loko meditation twee. Flexitarian fit 90's JOMO ennui neutra letterpress woke lo-fi put a bird on it. Woke cloud bread tumblr raclette edison bulb mixtape mumblecore shoreditch Brooklyn photo booth.", price: 10, user: testuser4, capacity: 1, city: "Bourg la Reine", address: "Bourg la Reine")
+appliance10 = Appliance.create!(name: "Fouette Fouette", description: "Cardigan stumptown tonx, woke four loko meditation twee. Flexitarian fit 90's JOMO ennui neutra letterpress woke lo-fi put a bird on it. Woke cloud bread tumblr killme edison bulb mixtape mumblecore shoreditch Brooklyn photo booth.", price: 10, user: testuser4, capacity: 1, city: "Bourg la Reine", address: "Bourg la Reine")
 appliance10.photo.attach(io: photo10, filename: "mixer_3.jpeg", content_type: "image/jpg")
 appliance10.save!
 
@@ -100,7 +100,7 @@ appliance11.save!
 puts "Created appliance 11"
 
 photo12 = File.open("app/assets/images/fondue_12.jpg")
-appliance12 = Appliance.create!(name: "Hot pot!", description: "Street art sriracha cardigan pop-up. Ennui prism jawn literally distillery vinyl crucifix af echo park quinoa slow-carb biodiesel vibecession keffiyeh. Artisan vexillologist tattooed sartorial. Authentic squid ethical, shabby chic meh williamsburg YOLO cliche viral edison bulb letterpress. Poutine viral 8-bit gastropub pinterest. Intelligentsia vice distillery salvia, mustache synth VHS banh mi yuccie adaptogen la croix.", price: 20, user: testuser3, capacity: 10, city: "Anthony", address: "Anthony")
+appliance12 = Appliance.create!(name: "Hot pot!", description: "Street art sriracha cardigan pop-up. Ennui prism jawn literally distillery vinyl crucifix af echo park quinoa slow-carb biodiesel vibecession keffiyeh. Artisan vexillologist tattooed sartorial. Authentic squid ethical, shabby chic meh williamsburg YOLO cliche viral edison bulb letterpress. Poutine viral 8-bit gastropub pinterest. Intelligentsia vice distillery salvia, mustache synth VHS banh mi yuccie adaptogen la croix.", price: 20, user: testuser3, capacity: 10, city: "Sceaux", address: "Sceaux")
 appliance12.photo.attach(io: photo12, filename: "fondue_12.jpg", content_type: "image/jpg")
 appliance12.save!
 
