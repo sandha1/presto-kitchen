@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-sm-offset-1">
-      <h1 class="custom-title">Edit an appliance</h1>
+<div class="container my-3 d-flex justify-content-center">
+  <div class="row w-auto justify-content-center">
+  <h1 class="text-center custom-title">Edit an appliance</h1>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
       <%= simple_form_for @appliance do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
@@ -14,3 +14,7 @@
     </div>
   </div>
 </div>
+
+
+
+ <%# <div class="col-xs-6 col-sm-6 col-sm-offset-1"> %>

@@ -1,8 +1,11 @@
-<div class="container">
-  <div class="row">
+<div class="container my-3 d-flex justify-content-center">
+<div class="row w-auto justify-content-center">
+ <h1 class="text-center custom-title">Create a new appliance</h1>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
   <% if user_signed_in? %>
     <div class="col-xs-6 col-sm-6 col-sm-offset-1">
-      <h1 class="custom-title">Create a new appliance</h1>
+
+      <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
       <%= simple_form_for @appliance do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
@@ -18,5 +21,9 @@
       <div class='px-4 py-2 '>
       <%= link_to "Sign in to book appliance", user_session_path(redirect_url: new_appliance_url(@appliance)) %><br />
     <% end%>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
