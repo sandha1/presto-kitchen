@@ -17,9 +17,9 @@
 
     <% if @appliances %>
       <% @appliances.each do |appliance| %>
-        <div class="col-4 p-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 p-3">
 
-          <div class="card-trip">
+          <div class="card-trip d-flex flex-column h-100">
             <% if appliance.photo.attached? %>
               <%= cl_image_tag(appliance.photo.key) %>
             <% else %>
