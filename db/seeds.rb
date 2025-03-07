@@ -30,7 +30,7 @@ appliance1.save!
 puts "Created appliance 1"
 
 photo2 = File.open("app/assets/images/raclette_4.jpg")
-appliance2 = Appliance.new(name: "Raclette for 4", description:"Blue castello port-salut port-salut. Blue castello rubber cheese caerphilly emmental airedale stilton when the cheese comes out everybody's happy the big cheese. Cheese and biscuits mascarpone melted cheese squirty cheese cheddar cheese slices cheese triangles cheddar. Cottage cheese red leicester.", price: 15, user: testuser2, capacity: 4, address: "Chambéry")
+appliance2 = Appliance.new(name: "Raclette for 4", description:"Blue castello port-salut port-salut. Blue castello rubber cheese caerphilly emmental airedale stilton when the cheese comes out everybody's happy the big cheese. Cheese and biscuits mascarpone melted cheese squirty cheese cheddar cheese slices cheese triangles cheddar. Cottage cheese red leicester.", price: 15, user: testuser2, capacity: 4, address: "Gentilly")
 appliance2.photo.attach(io: photo2, filename: "raclette_4.jpg", content_type: "image/jpg")
 appliance2.save!
 
@@ -114,7 +114,7 @@ appliance13.save!
 puts "Created appliance 13"
 
 photo14 = File.open("app/assets/images/raclette_14.jpg")
-appliance14 = Appliance.create!(name: "Raclette orgy", description: "I'm baby cillum sunt artisan dolore. Veniam DIY grailed magna meh praxis, edison bulb plaid cornhole culpa asymmetrical qui poke vibecession pabst. Quinoa sustainable bushwick enamel pin biodiesel trust fund, man bun beard.", price: 20, user: testuser2, capacity: 12, address: "Villejuif")
+appliance14 = Appliance.create!(name: "Raclette orgy", description: "I'm baby cillum sunt artisan dolore. Veniam DIY grailed magna meh praxis, edison bulb plaid cornhole culpa asymmetrical qui poke vibecession pabst. Quinoa sustainable bushwick enamel pin biodiesel trust fund, man bun beard.", price: 20, user: testuser2, capacity: 12, address: "Gentilly")
 appliance14.photo.attach(io: photo14, filename: "raclette_14.jpg", content_type: "image/jpg")
 appliance14.save!
 
