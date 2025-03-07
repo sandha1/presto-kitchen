@@ -1,5 +1,5 @@
 <div class="container my-3">
-  <h1 class="text-center ">My bookings</h1>
+  <h1 class="text-center custom-title">My bookings</h1>
 
   <% @appliances.each do |appliance| %>
 
@@ -30,9 +30,9 @@
             </div>
             <div class="pe-3">
               <% if booking.accepted.nil? %>
-                <h5><span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <strong><%= "Pending" %></strong></h5>
+                <h5><span style="color: orange"><i class="fa-regular fa-hourglass-half fa-spin" style="--fa-animation-duration: 15s;"></i></span> <strong><%= "Pending" %></strong></h5>
               <% elsif booking.accepted %>
-                <h5><span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <strong><%= "Accepted" %></strong></h5>
+                <h5><span style="color: DarkGreen"><i class="fa-solid fa-circle-check fa-beat"></i></span> <strong><%= "Accepted" %></strong></h5>
               <% else %>
                 <h5><span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <strong><%= "Declined" %></strong></h5>
               <% end %>

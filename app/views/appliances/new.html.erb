@@ -1,24 +1,29 @@
-<div class="container">
-  <div class="row">
-    <% if user_signed_in? %>
-      <div class="col-xs-6 col-sm-6 col-sm-offset-1">
-        <h1 class="custom-title">Create a new appliance</h1>
-        <%= simple_form_for @appliance do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.input :capacity %>
-          <%= f.input :city %>
-          <%= f.input :price %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit class: 'btn btn-background-blue' %>
-        <% end %>
-      </div>
+<div class="container my-3 d-flex justify-content-center">
+<div class="row w-auto justify-content-center">
+ <h1 class="text-center custom-title">Create a new appliance</h1>
+  <div class="d-flex justify-content-center align-items-center">
+  <% if user_signed_in? %>
+    <div class="col-xs-6 col-sm-6 col-sm-offset-1">
+
+      <div class="d-flex justify-content-center align-items-center">
+      <%= simple_form_for @appliance do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :capacity %>
+        <%= f.input :city %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'btn btn-background-blue' %>
+      <% end %>
+    </div>
     <% else %>
-      <div class='col-12 col-lg-4 text-center d-flex p-5'>
-        <div class='px-4 py-2'>
-          <%= link_to "Sign in to book appliance", user_session_path(redirect_url: new_appliance_url(@appliance)), class: "btn btn-background-blue" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+      <div class='col-12 col-lg-4 text-center d-flex p-5' >
+      <div class='px-4 py-2 '>
+      <%= link_to "Sign in to book appliance", user_session_path(redirect_url: new_appliance_url(@appliance)), class: "btn btn-background-blue" %>
+    <% end%>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
