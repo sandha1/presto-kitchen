@@ -31,11 +31,11 @@
               <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
             <% end %>
 
-         <div class="card-trip-infos justify-content-end">
-    <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-    <span style="color: #01497C"><i class="fa-solid fa-trash"></i></span>
-    <% end %>
-  </div>
+         <div class="card-trip-infos justify-content-end"> %>
+    <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do
+    <%# <span style="color: #01497C"><i class="fa-solid fa-trash"></i></span> %>
+    <%# <% end %>
+  <%# </div>
 
           <% end %>
 
