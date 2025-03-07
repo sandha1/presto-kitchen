@@ -17,10 +17,15 @@
       <div class='col-12 col-lg-4' id="form_datepicker">
         <div class='bg-white rounded-4 shadow' style='height: 400px'>
           <div class='px-4 py-2'>
-            <p style='fw-bold'><%= @appliance.price %>€ per night</p>
-          <div>
-            <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
-          </div>
+            <% if @appliance.user == current_user %>
+              <p><strong>You cannot book your own appliance.</strong></p>
+              <%= link_to 'My appliances', 'my_appliances_path' %>
+            <% else %>
+                <p style='fw-bold'><%= @appliance.price %>€ per night</p>
+                <div>
+                <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>
