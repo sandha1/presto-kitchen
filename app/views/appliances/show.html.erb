@@ -6,12 +6,17 @@
     <%= image_tag("default_appliance.jpg", class: 'w-100 object-fit-cover position-center rounded-4', height: '400px') %>
   <% end %>
 
-  <div class='row mt-3'>
-    <div class='col-12 col-lg-8'>
-      <h1 class='display-5 fw-bold py-2'><%= @appliance.name %></h1>
-      <p class='py-2'><i class='fa-solid fa-user-group'></i> <strong><%= @appliance.capacity %></strong>, <i class='fa-solid fa-location-dot'></i> <strong><%= @appliance.city %></strong></p>
-      <p class='py-2'><%= @appliance.description %></p>
-    </div>
+<div class='row mt-3'>
+  <div class='col-12 col-lg-8'>
+   <h1 class="display-5 fw-bold py-1"><%= @appliance.name %></h1>
+     <p class="mt-1 text-muted"><small>Posted by <strong><%= @appliance.user.username %></strong></small></p>
+    <p class="py-2 d-flex">
+      <span class="d-flex gap-3">
+        <span><i class='fa-solid fa-user-group'></i> <strong><%= @appliance.capacity %></strong></span>
+        <span><i class='fa-solid fa-location-dot'></i> <strong><%= @appliance.city %></strong></span>
+      </span></p>
+    <p class='py-2'><%= @appliance.description %></p>
+  </div>
 
     <% if user_signed_in? %>
       <div class='col-12 col-lg-4' id="form_datepicker">
