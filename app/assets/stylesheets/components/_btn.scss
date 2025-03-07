@@ -6,7 +6,7 @@
   height: 40px !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
-  margin-left: 5px !important;
+  // margin-left: 5px !important;
 }
 
 .btn-blue:hover {
@@ -45,6 +45,24 @@
   padding-right: 20px !important;
   text-align: center;
   vertical-align: middle;
+}
+
+.btn-background-blue:hover {
+  color: white !important;
+}
+
+.btn-background-blue-alert {
+  background-color: #01497C !important;
+  color: #F0F0F0 !important;
+  border: #F0F0F0 solid 3px !important;
+  text-decoration: none;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  height: 40px !important;
+  display: block;
+  width: 50%; /* Définir une largeur en % pour l'élément */
+  margin: 0 auto; /* Marge automatique pour centrer */
+  text-align: center;
 }
 
 .btn-background-blue:hover {

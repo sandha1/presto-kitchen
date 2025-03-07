@@ -23,8 +23,8 @@
         <div class='bg-white rounded-4 shadow' style='height: 400px'>
           <div class='px-4 py-2'>
             <% if @appliance.user == current_user %>
-              <p><strong>You cannot book your own appliance.</strong></p>
-              <%= link_to 'My appliances', my_appliances_path %>
+              <p class="card-alert">You cannot book your own appliance.</p>
+              <%= link_to 'My appliances', my_appliances_path, class: "btn btn-background-blue-alert" %>
             <% else %>
                 <p style='fw-bold'><%= @appliance.price %>€ per night</p>
                 <div>

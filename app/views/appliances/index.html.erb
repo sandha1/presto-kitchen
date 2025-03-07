@@ -6,7 +6,7 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-      <button data-action="click->map#toggle">Hide/Display the map</button>
+      <button data-action="click->map#toggle" class="btn btn-blue">Hide/Display the map</button>
       <div class="map-wrapper">
         <div data-map-target="mapContainer" style="width: 100%; height: 300px;"></div>
       </div>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="d-flex justify-content-end p-2">
-            <%= link_to("More infos", appliance_path(appliance), class:"btn btn-primary") %>
+            <%= link_to("More infos", appliance_path(appliance), class:"btn btn-background-blue") %>
           </div>
         </div>
 
