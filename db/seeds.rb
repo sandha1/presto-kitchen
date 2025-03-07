@@ -52,14 +52,14 @@ appliance4.save!
 puts "Created appliance 4"
 
 photo5 = File.open("app/assets/images/raclette_8.jpg")
-appliance5 = Appliance.create!(name: "Raaaaaaaaaclette !!!", description: "Cheese strings who moved my cheese stilton. Everyone loves who moved my cheese halloumi cheese and wine cheesy grin danish fontina cauliflower cheese cheese triangles. Paneer macaroni cheese say cheese mascarpone feta ricotta cheese slices camembert de normandie. Hard cheese taleggio when the cheese comes out everybody's happy fromage fromage who moved my cheese port-salut cut the cheese. Melted cheese.", price: 25, user: testuser5, capacity: 8, city:"Villejuif", address: "Villejuif")
+appliance5 = Appliance.create!(name: "Raaaaaaaaaclette !!!", description: "Cheese strings who moved my cheese stilton. Everyone loves raclette who moved my cheese halloumi cheese and wine cheesy grin danish fontina cauliflower cheese cheese triangles. Paneer macaroni cheese say cheese mascarpone feta ricotta cheese slices camembert de normandie. Hard cheese taleggio when the cheese comes out everybody's happy fromage fromage who moved my cheese port-salut cut the cheese. Melted cheese.", price: 25, user: testuser5, capacity: 8, city:"Villejuif", address: "Villejuif")
 appliance5.photo.attach(io: photo5, filename: "raclette_8.jpg", content_type: "image/jpg")
 appliance5.save!
 
 puts "Created appliance 5"
 
 photo6 = File.open("app/assets/images/raclette_pierrade.jpg")
-appliance6 = Appliance.create!(name: "Raclette et pierrade", description: "Cream cheese queso blue castello. Stinking bishop danish fontina swiss mozzarella st. agur blue cheese when the cheese comes out everybody's happy pecorino bocconcini. Hard cheese cut the cheese feta bocconcini blue castello fondue say cheese babybel. Mozzarella.", price: 25, user: testuser5, capacity: 10, city:"Orsay", address: "Orsay")
+appliance6 = Appliance.create!(name: "Raclette et pierrade", description: "Cream cheese queso blue castello. Stinking bishop danish fontina swiss mozzarella st. agur blue cheese when the cheese comes out everybody's happy pecorino bocconcini. Hard cheese cut the cheese feta bocconcini blue castello fon say cheese babybel. Mozzarella.", price: 25, user: testuser5, capacity: 10, city:"Orsay", address: "Orsay")
 appliance6.photo.attach(io: photo6, filename: "raclette_pierrade.jpg", content_type: "image/jpg")
 appliance6.save!
 
