@@ -6,7 +6,7 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-      <button data-action="click->map#toggle">Hide/Display the map</button>
+      <button data-action="click->map#toggle" class="btn btn-blue">Hide/Display the map</button>
       <div class="map-wrapper">
         <div data-map-target="mapContainer" style="width: 100%; height: 300px;"></div>
       </div>
@@ -16,37 +16,37 @@
   <div class="row justify-content-center">
 
     <% if @appliances %>
-    <% @appliances.each do |appliance| %>
-      <div class="col-4 p-3">
+      <% @appliances.each do |appliance| %>
+        <div class="col-4 p-3">
 
-        <div class="card-trip">
-          <% if appliance.photo.attached? %>
-            <%= cl_image_tag(appliance.photo.key) %>
-          <% else %>
-            <%= image_tag("default_appliance.jpg") %>
-          <% end %>
-          <div class="card-trip-infos">
-            <h2><%= appliance.name %></h2>
-            <div class="d-flex">
-              <p class="card-trip-pricing me-2"><i class="fa-solid fa-user-group"></i> <strong><%= appliance.capacity %></strong>,</p>
-              <p class="card-trip-pricing me-2"><i class="fa-solid fa-location-dot"></i> <strong><%= appliance.city %></strong>,</p>
-              <p class="card-trip-pricing"><i class="fa-solid fa-euro-sign"></i> <strong><%= appliance.price %></strong></p>
+          <div class="card-trip">
+            <% if appliance.photo.attached? %>
+              <%= cl_image_tag(appliance.photo.key) %>
+            <% else %>
+              <%= image_tag("default_appliance.jpg") %>
+            <% end %>
+            <div class="card-trip-infos">
+              <h2><%= appliance.name %></h2>
+              <div class="d-flex">
+                <p class="card-trip-pricing me-2"><i class="fa-solid fa-user-group"></i> <strong><%= appliance.capacity %></strong>,</p>
+                <p class="card-trip-pricing me-2"><i class="fa-solid fa-location-dot"></i> <strong><%= appliance.city %></strong>,</p>
+                <p class="card-trip-pricing"><i class="fa-solid fa-euro-sign"></i> <strong><%= appliance.price %></strong></p>
+              </div>
+            </div>
+
+            <div class="px-3">
+              <p class="mb-2"><%= appliance.description[0..110] %>...</p>
+            </div>
+
+            <div class="d-flex justify-content-end p-2">
+              <%= link_to("More infos", appliance_path(appliance), class:"btn btn-background-blue") %>
             </div>
           </div>
 
-          <div class="px-3">
-            <p class="mb-2"><%= appliance.description[0..110] %>...</p>
           </div>
-
-          <div class="d-flex justify-content-end p-2">
-            <%= link_to("More infos", appliance_path(appliance), class:"btn btn-primary") %>
-          </div>
-        </div>
-
-        </div>
-      <% end %>
+        <% end %>
     <% else %>
-      <p class="text-center mt-3">👀 Sorry, there are no results to your query.</p>
+      <p class="text-center mt-3">👀 Sorry, there are no results for your query.</p>
     <% end %>
 
   </div>
