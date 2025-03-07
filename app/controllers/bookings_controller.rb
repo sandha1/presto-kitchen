@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
       if @booking.save
          redirect_to appliance_booking_path(@appliance, @booking)
       else
-        render :new, status: :unprocessable_entity
+        render "appliances/show", status: :unprocessable_entity
       end
     end
   end
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_dashboard_path(@appliance, @booking)
     else
-     render :new, status: :unprocessable_entity
+     render "pages/my_dashboard", status: :unprocessable_entity
     end
   end
 
@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_dashboard_path(@appliance, @booking)
     else
-      render :new, status: :unprocessable_entity
+      render "pages/my_dashboard", status: :unprocessable_entity
     end
   end
 
