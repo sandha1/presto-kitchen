@@ -24,7 +24,7 @@
 
         <% if current_user == booking.appliance.user %>
           <div class="ps-3 my-2">
-            <h5><strong>Booking request from:</strong> <%= booking.user.email.split("@").first %></h5>
+            <h5><strong>Booking request from:</strong> <%= booking.user.username %></h5>
             <h2>From: <%= booking.start_date %> to <%= booking.end_date %> (<%= booking.total_price %> €)</h2>
           </div>
 
