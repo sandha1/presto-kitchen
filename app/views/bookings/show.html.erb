@@ -9,11 +9,11 @@
     <div class='row mt-3'>
       <div class='col-12 col-lg-8'>
         <h1 class='display-5 fw-bold py-2'><%= @booking.appliance.name %></h1>
-        <p><%= "Total price : #{@booking.total_price}€" %></p>
+        <p><%= "Total price: #{@booking.total_price} €" %></p>
         <% if @booking.accepted == nil %>
-          <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
+          <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half fa-spin" style="--fa-animation-duration: 15s;"></i></span> <%= "Pending" %></p>
         <% elsif @booking.accepted == true %>
-          <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
+          <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check fa-beat"></i></span> <%= "Accepted" %></p>
         <% else @booking.accepted == false %>
           <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
         <% end %>

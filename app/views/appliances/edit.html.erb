@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-sm-offset-1">
+      <h1 class="custom-title">Edit an appliance</h1>
+      <%= simple_form_for @appliance do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :capacity %>
+        <%= f.input :city %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

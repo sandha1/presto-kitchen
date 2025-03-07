@@ -5,13 +5,13 @@ class PagesController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(user: current_user)
-    @appliances = Appliance.where(user: current_user)
+    @bookings = current_user.bookings
+    @appliances = Appliance.where(bookings: @bookings)
   end
 
-  def my_appliances
-    @appliances = Appliance.where(user: current_user)
-    @bookings = Booking.where(user: current_user)
+def my_appliances
+    @appliances = current_user.appliances
+    @bookings = Booking.where(appliance: @appliances)
   end
 
   def my_dashboard

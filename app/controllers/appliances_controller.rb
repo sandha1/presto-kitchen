@@ -1,7 +1,14 @@
 class AppliancesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_appliance, only: %i[show edit update destroy]
 
   def index
+    if params[:query].present?
+      @appliances = Appliance.search_by_name_and_description(params[:query])
+    else
+      @appliances = Appliance.all
+    end
+
     if @appliances
       @markers = @appliances.geocoded.map do |appliance|
         {
@@ -12,15 +19,9 @@ class AppliancesController < ApplicationController
         }
       end
     end
-    if params[:query].present?
-      @appliances = Appliance.search_by_name_and_description(params[:query])
-    else
-      @appliances = Appliance.all
-    end
   end
 
   def show
-    @appliance = Appliance.find(params[:id])
     @booking = Booking.new
   end
 
@@ -39,9 +40,30 @@ class AppliancesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @appliance.update(appliance_params)
+    if @appliance.save
+      redirect_to appliance_path(@appliance)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @appliance.destroy
+    redirect_to my_appliances_path, status: :see_other
+  end
+
   private
 
-  def appliance_params
-    params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
+    def set_appliance
+      @appliance = Appliance.find(params[:id])
+    end
+
+    def appliance_params
+      params.require(:appliance).permit(:name, :description, :price, :city, :capacity, :photo)
   end
 end

@@ -29,5 +29,5 @@ class Appliance < ApplicationRecord
   def coordinates_present?
     latitude.present? && longitude.present?
   end
-  
+
 end

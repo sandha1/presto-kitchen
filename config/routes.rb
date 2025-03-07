@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :appliances, only: [:index, :show, :new, :create] do
+  resources :appliances do
     resources :bookings, only: [:create, :show]
   end
+
+  delete "bookings/:id", to: "bookings#destroy"
 
   get "/my_appliances", to: "pages#my_appliances"
   get "/my_bookings", to: "pages#my_bookings"

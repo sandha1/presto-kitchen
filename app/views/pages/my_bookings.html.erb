@@ -1,40 +1,47 @@
 <div class="container my-3">
-
   <h1 class="text-center ">My bookings</h1>
 
-    <% @appliances.each do |appliance| %>
+  <% @appliances.each do |appliance| %>
 
-      <div class="card-product mb-3">
+    <div class="card-product border-bottom mt-3">
+      <% if appliance.photo.attached? %>
+        <%= cl_image_tag(appliance.photo.key) %>
+      <% else %>
+        <%= image_tag("default_appliance.jpg") %>
+      <% end %>
 
-        <% if appliance.photo.attached? %>
-          <%= cl_image_tag(appliance.photo.key) %>
-        <% else %>
-          <%= image_tag("default_appliance.jpg") %>
-        <% end %>
-
-        <div class="card-product-infos">
-          <p><%= appliance.name %><p>
-          <p><%= appliance.description %><p>
-        </div>
-
-        <% if appliance.bookings.any? %>
-
-          <% appliance.bookings.each do |booking| %>
-
-            <% if booking.accepted.nil? %>
-              <p>Status: <span style="color: orange"><i class="fa-regular fa-hourglass-half"></i></span> <%= "Pending" %></p>
-            <% elsif booking.accepted %>
-              <p>Status: <span style="color: DarkGreen"><i class="fa-solid fa-circle-check"></i></span> <%= "Accepted" %></p>
-            <% else %>
-              <p>Status: <span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <%= "Declined" %></p>
-            <% end %>
-
-          <% end %>
-
-        <% end %>
-
+      <div class="card-product-infos">
+        <p><strong><%= appliance.name %></strong><p>
+        <p><%= appliance.description %><p>
       </div>
+    </div>
 
-    <% end %>
+    <div class="bg-white p-3">
+      <% if @bookings.where(appliance: appliance).any? %>
+        <% @bookings.where(appliance: appliance).each_with_index do |booking, i| %>
+          <% unless i.zero? %>
+            <hr class="mx-5 my-3">
+          <% end %>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h5>Made on <%= booking.created_at.strftime('%Y-%m-%d') %></h5>
+              <h5>From <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h5>
+              <h5 class="mb-0"><strong><%= booking.total_price %> </strong> €</h5>
+            </div>
+            <div class="pe-3">
+              <% if booking.accepted.nil? %>
+                <h5><span style="color: orange"><i class="fa-regular fa-hourglass-half fa-spin" style="--fa-animation-duration: 15s;"></i></span> <strong><%= "Pending" %></strong></h5>
+              <% elsif booking.accepted %>
+                <h5><span style="color: DarkGreen"><i class="fa-solid fa-circle-check fa-beat"></i></span> <strong><%= "Accepted" %></strong></h5>
+              <% else %>
+                <h5><span style="color: maroon"><i class="fa-solid fa-circle-xmark"></i></span> <strong><%= "Declined" %></strong></h5>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
 
+      <% end %>
+
+    </div>
+  <% end %>
 </div>

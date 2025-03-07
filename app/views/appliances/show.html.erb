@@ -6,31 +6,41 @@
     <%= image_tag("default_appliance.jpg", class: 'w-100 object-fit-cover position-center rounded-4', height: '400px') %>
   <% end %>
 
-  <div class='row mt-3'>
-    <div class='col-12 col-lg-8'>
-      <h1 class='display-5 fw-bold py-2'><%= @appliance.name %></h1>
-      <p class='py-2'><i class='fa-solid fa-user-group'></i> <strong><%= @appliance.capacity %></strong>, <i class='fa-solid fa-location-dot'></i> <strong><%= @appliance.city %></strong></p>
-      <p class='py-2'><%= @appliance.description %></p>
-    </div>
+<div class='row mt-3'>
+  <div class='col-12 col-lg-8'>
+   <h1 class="display-5 fw-bold py-1"><%= @appliance.name %></h1>
+     <p class="mt-1 text-muted"><small>Posted by <strong><%= @appliance.user.username %></strong></small></p>
+    <p class="py-2 d-flex">
+      <span class="d-flex gap-3">
+        <span><i class='fa-solid fa-user-group'></i> <strong><%= @appliance.capacity %></strong></span>
+        <span><i class='fa-solid fa-location-dot'></i> <strong><%= @appliance.city %></strong></span>
+      </span></p>
+    <p class='py-2'><%= @appliance.description %></p>
+  </div>
 
     <% if user_signed_in? %>
       <div class='col-12 col-lg-4' id="form_datepicker">
         <div class='bg-white rounded-4 shadow' style='height: 400px'>
           <div class='px-4 py-2'>
-            <p style='fw-bold'><%= @appliance.price %>€ per night</p>
-          <div>
-            <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
-          </div>
+            <% if @appliance.user == current_user %>
+              <p class="card-alert">You cannot book your own appliance.</p>
+              <%= link_to 'My appliances', my_appliances_path, class: "btn btn-background-blue-alert" %>
+            <% else %>
+                <p style='fw-bold'><%= @appliance.price %>€ per night</p>
+                <div>
+                <%= render 'bookings/form', appliance: @appliance, booking: @booking %>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>
 
     <% else %>
       <div class='col-12 col-lg-4 text-center d-flex p-5' >
-      <div class='px-4 py-2 '>
-      <%= link_to "Sign in to book appliance", user_session_path(redirect_url: appliance_url(@appliance)) %><br />
-    <% end%>
+        <div class='px-4 py-2 '>
+          <%= link_to "Sign in to book appliance", user_session_path, class: "btn btn-background-blue" %><br/>
         </div>
       </div>
+    <% end %>
     </div>
   </div>
